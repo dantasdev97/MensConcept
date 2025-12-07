@@ -36,7 +36,7 @@ export default function Header() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white text-xs md:text-sm uppercase tracking-[0.15em] font-body mt-1 text-center"
             >
-              BARBERSHOP
+              
             </motion.p>
           </div>
 

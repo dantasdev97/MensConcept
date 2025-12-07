@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Header from '../components/Header'
 
@@ -19,10 +18,12 @@ export default function Home() {
             target.style.display = 'none'
           }}
         >
-          <source src="/videos/barbershop-background.mp4" type="video/mp4" />
+          <source src="/videos/bannervideo.mp4" type="video/mp4" />
         </video>
         {/* Overlay com sombra leve */}
         <div className="absolute inset-0 bg-[#0C0A09]/80 backdrop-blur-[1px]"></div>
+        {/* Sombra de baixo para cima no fim do vídeo */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0C0A09] via-[#0C0A09]/60 to-transparent"></div>
       </div>
 
       {/* Header */}
@@ -36,7 +37,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[#FF6B9D] text-sm md:text-base uppercase tracking-[0.2em] font-body mb-6"
+            className="text-[#DD9E32] text-sm md:text-base uppercase tracking-[0.2em] font-body mb-6"
           >
             LUXEMBOURG CITY
           </motion.p>
@@ -73,41 +74,32 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
-            <Link to="/appointment">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 bg-[#8B1538] text-white uppercase tracking-wider font-body font-medium rounded-md flex items-center gap-2 hover:bg-[#A01842] transition-colors"
+            <motion.a
+              href="https://salonkee.lu/salon/men-s-concept-barber-shop"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative px-10 py-5 bg-[#DD9E32] text-white uppercase tracking-wider font-heading font-bold rounded-lg flex items-center gap-3 hover:bg-[#C88A1F] transition-all shadow-lg shadow-[#DD9E32]/30 hover:shadow-xl hover:shadow-[#DD9E32]/40"
+            >
+              <span className="text-lg md:text-xl">BOOK APPOINTMENT</span>
+              <motion.svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                initial={{ x: 0 }}
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
               >
-                BOOK APPOINTMENT
-                <motion.svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  initial={{ x: 0 }}
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </motion.svg>
-              </motion.button>
-            </Link>
-
-            <Link to="/services">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-white text-white uppercase tracking-wider font-body font-medium rounded-md hover:bg-white hover:text-[#0C0A09] transition-colors"
-              >
-                OUR SERVICES
-              </motion.button>
-            </Link>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M9 5l7 7-7 7"
+                />
+              </motion.svg>
+            </motion.a>
           </motion.div>
 
           {/* Scroll Indicator */}
@@ -115,23 +107,27 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
           >
-            <motion.svg
-              className="w-6 h-6 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </motion.svg>
+            <div className="relative">
+              {/* Círculo com blur de fundo */}
+              <div className="absolute inset-0 w-14 h-14 bg-white/10 backdrop-blur-md rounded-full -translate-x-1/2 left-1/2 -translate-y-1/2 top-1/2"></div>
+              <motion.svg
+                className="relative w-6 h-6 text-white z-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </motion.svg>
+            </div>
           </motion.div>
         </div>
       </div>
