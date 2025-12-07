@@ -39,7 +39,7 @@ export default function Services() {
     <div className="min-h-screen bg-[#0C0A09] text-white">
       <Header />
       <div className="container mx-auto px-4 py-32">
-      <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-center">Our Services</h1>
         <p className="text-lg font-body text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
           Discover our range of premium grooming services designed to help you look and feel your best.
@@ -67,6 +67,7 @@ export default function Services() {
           >
             Back to Home
           </Link>
+        </div>
         </div>
       </div>
     </div>

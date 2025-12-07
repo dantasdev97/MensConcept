@@ -26,7 +26,7 @@ export default function Header() {
                 />
               ) : (
                 <span className="text-white text-xl md:text-2xl lg:text-3xl font-heading font-bold uppercase tracking-tight">
-                  MENS' CONCEPT
+                  MENS&apos; CONCEPT
                 </span>
               )}
             </motion.div>

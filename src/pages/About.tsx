@@ -6,7 +6,7 @@ export default function About() {
     <div className="min-h-screen bg-[#0C0A09] text-white">
       <Header />
       <div className="container mx-auto px-4 py-32">
-      <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-heading font-bold mb-8">About Us</h1>
         
         <div className="space-y-6 font-body text-lg text-muted-foreground mb-12">
@@ -39,6 +39,7 @@ export default function About() {
         >
           Back to Home
         </Link>
+        </div>
       </div>
     </div>
   )
