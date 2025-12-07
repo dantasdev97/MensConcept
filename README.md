@@ -10,6 +10,7 @@ Projeto React com TypeScript, Vite, React Router e shadcn/ui.
 - **React Router** - Roteamento para aplicações React
 - **shadcn/ui** - Componentes UI acessíveis e customizáveis
 - **Tailwind CSS** - Framework CSS utility-first
+- **Framer Motion** - Biblioteca de animações para React
 
 ## 📦 Instalação
 
@@ -51,25 +52,24 @@ public/            # Assets estáticos (logo, imagens)
 - **Descrições/Corpo**: Poppins (font-body)
 
 ### Cores
+- **Fundo principal**: #0C0A09 (preto escuro)
 - **Botões em destaque**: #DD9E32 (dourado)
+- **Botão primário**: #8B1538 (vermelho/marrom escuro)
 - As cores estão configuradas no sistema de design do shadcn/ui
 
-### Assets (Logo e Imagens)
-Adicione sua logo e imagens na pasta `public/`:
-- Logo: `public/logo.png` (ou `.svg`, `.jpg`, etc.)
-- Imagens: `public/images/`
+### Assets (Logo, Imagens e Vídeo)
+Adicione seus assets na pasta `public/`:
+- **Logo**: `public/Logo.png` (já adicionado)
+- **Vídeo de fundo**: `public/videos/barbershop-background.mp4`
+  - O vídeo será exibido como fundo na página inicial
+  - Se o vídeo não existir, o fundo será apenas a cor #0C0A09
+  - Recomendado: vídeo em loop, sem áudio, formato MP4
+- **Imagens**: `public/images/`
 
-Para usar a logo nos componentes:
-```tsx
-import Logo from '@/components/Logo'
-
-<Logo className="h-12 w-auto" />
-```
-
-Ou diretamente:
-```tsx
-<img src="/logo.png" alt="Logo" />
-```
+**Nota sobre o vídeo:**
+- Adicione um vídeo de cortes de cabelo/barbershop em `public/videos/barbershop-background.mp4`
+- O vídeo será reproduzido automaticamente em loop
+- Um overlay escuro com blur leve é aplicado para melhorar a legibilidade do texto
 
 ## 🎨 Adicionar componentes shadcn/ui
 

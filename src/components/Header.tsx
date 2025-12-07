@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [logoError, setLogoError] = useState(false)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0C0A09] border-b border-white/10">
@@ -16,19 +17,18 @@ export default function Header() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <img 
-                src="/Logo.png" 
-                alt="MensConcept Logo" 
-                className="h-8 md:h-10 lg:h-12 w-auto"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.style.display = 'none'
-                  const parent = target.parentElement
-                  if (parent) {
-                    parent.innerHTML = '<span class="text-white text-xl md:text-2xl lg:text-3xl font-heading font-bold uppercase tracking-tight">MENS\' CONCEPT</span>'
-                  }
-                }}
-              />
+              {!logoError ? (
+                <img 
+                  src="/Logo.png" 
+                  alt="MensConcept Logo" 
+                  className="h-8 md:h-10 lg:h-12 w-auto"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <span className="text-white text-xl md:text-2xl lg:text-3xl font-heading font-bold uppercase tracking-tight">
+                  MENS' CONCEPT
+                </span>
+              )}
             </motion.div>
             <motion.p
               initial={{ opacity: 0 }}
