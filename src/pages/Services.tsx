@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
 
 export default function Services() {
   const services = [
@@ -35,7 +36,9 @@ export default function Services() {
   ]
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="min-h-screen bg-[#0C0A09] text-white">
+      <Header />
+      <div className="container mx-auto px-4 py-32">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-center">Our Services</h1>
         <p className="text-lg font-body text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
@@ -46,7 +49,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="border rounded-lg p-6 hover:shadow-lg transition-shadow"
+              className="border border-white/10 bg-white/5 rounded-lg p-6 hover:bg-white/10 transition-all"
             >
               <h3 className="text-xl font-heading font-semibold mb-2">{service.title}</h3>
               <p className="font-body text-muted-foreground mb-4">{service.description}</p>
@@ -60,8 +63,7 @@ export default function Services() {
         <div className="text-center">
           <Link 
             to="/" 
-            className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity font-body font-medium"
-            style={{ backgroundColor: '#DD9E32' }}
+            className="inline-block px-8 py-3 bg-[#DD9E32] text-white rounded-md hover:opacity-90 transition-opacity font-body font-medium"
           >
             Back to Home
           </Link>

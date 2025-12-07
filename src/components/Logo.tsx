@@ -5,7 +5,7 @@ interface LogoProps {
 export default function Logo({ className = "" }: LogoProps) {
   return (
     <img 
-      src="/logo.png" 
+      src="/Logo.png" 
       alt="MensConcept Logo" 
       className={className}
       onError={(e) => {

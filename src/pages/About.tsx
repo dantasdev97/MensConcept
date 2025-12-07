@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
 
 export default function About() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="min-h-screen bg-[#0C0A09] text-white">
+      <Header />
+      <div className="container mx-auto px-4 py-32">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-heading font-bold mb-8">About Us</h1>
         
@@ -32,8 +35,7 @@ export default function About() {
 
         <Link 
           to="/" 
-          className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity font-body font-medium"
-          style={{ backgroundColor: '#DD9E32' }}
+          className="inline-block px-8 py-3 bg-[#DD9E32] text-white rounded-md hover:opacity-90 transition-opacity font-body font-medium"
         >
           Back to Home
         </Link>
