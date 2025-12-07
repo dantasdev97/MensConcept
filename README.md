@@ -46,15 +46,36 @@ src/
 ## 🎨 Adicionar componentes shadcn/ui
 
 ```bash
-npx shadcn-ui@latest add [component-name]
+npx shadcn@latest add [component-name]
 ```
 
 Exemplo:
 ```bash
-npx shadcn-ui@latest add button
+npx shadcn@latest add button
 ```
+
+**Nota:** O shadcn/ui está configurado e pronto para uso. Você pode adicionar qualquer componente disponível na [documentação oficial](https://ui.shadcn.com/docs/components).
 
 ## 🔗 GitHub
 
-O projeto está configurado para uso com Git e GitHub.
+O projeto está configurado com Git. Para conectar ao GitHub:
+
+1. Crie um novo repositório no GitHub (não inicialize com README, .gitignore ou licença)
+
+2. Conecte o repositório local ao remoto:
+```bash
+git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+```
+
+3. Renomeie a branch principal (se necessário):
+```bash
+git branch -M main
+```
+
+4. Envie o código para o GitHub:
+```bash
+git push -u origin main
+```
+
+**Nota:** Se você já tem um repositório criado, substitua `SEU_USUARIO` e `SEU_REPOSITORIO` pelos valores corretos.
 
