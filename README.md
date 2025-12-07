@@ -41,6 +41,34 @@ src/
 ├── App.tsx        # Componente principal com rotas
 ├── main.tsx       # Ponto de entrada
 └── index.css      # Estilos globais
+public/            # Assets estáticos (logo, imagens)
+```
+
+## 🎨 Design System
+
+### Fontes
+- **Títulos**: Space Grotesk (font-heading)
+- **Descrições/Corpo**: Poppins (font-body)
+
+### Cores
+- **Botões em destaque**: #DD9E32 (dourado)
+- As cores estão configuradas no sistema de design do shadcn/ui
+
+### Assets (Logo e Imagens)
+Adicione sua logo e imagens na pasta `public/`:
+- Logo: `public/logo.png` (ou `.svg`, `.jpg`, etc.)
+- Imagens: `public/images/`
+
+Para usar a logo nos componentes:
+```tsx
+import Logo from '@/components/Logo'
+
+<Logo className="h-12 w-auto" />
+```
+
+Ou diretamente:
+```tsx
+<img src="/logo.png" alt="Logo" />
 ```
 
 ## 🎨 Adicionar componentes shadcn/ui
