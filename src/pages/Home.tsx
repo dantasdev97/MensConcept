@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import Header from '../components/Header'
+import Gallery from '../components/Gallery'
 
 export default function Home() {
   return (
+    <>
     <div className="relative min-h-screen overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
@@ -132,5 +134,9 @@ export default function Home() {
         </div>
       </div>
     </div>
+    
+    {/* Gallery Section */}
+    <Gallery />
+    </>
   )
 }
