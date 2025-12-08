@@ -137,6 +137,87 @@ export default function Home() {
     
     {/* Gallery Section */}
     <Gallery />
+
+    {/* Testemunhos Modernos */}
+    <section className="relative z-10 py-16 bg-[#1A1817] text-white">
+      <div className="max-w-6xl mx-auto px-4 text-center">
+        <motion.h2
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl font-heading mb-8 text-[#DD9E32] uppercase tracking-wide"
+        >
+          Testemunhos
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/*
+            { text: "oioiServiço incrível! Superou todas as minhas expectativas.", name: "João Silva4545" },
+            { text: "Equipe muito atenciosa e profissional. Recomendo!", name: "Maria Oliveiraiuiu" },
+            { text: "Ambiente acolhedor e serviço de alta qualidade.", name: "Pedro Santos" },
+          */}
+          { [
+              {
+                text: "Serviço profissional e ambiente acolhedor. Recomendo!",
+                name: "Marcus Weber",
+                role: "Cliente Regular",
+                rating: 5,
+              },
+              {
+                text: "Atmosfera incrível e barbearia de alta qualidade.",
+                name: "Luca Rossi",
+                role: "Empreendedor",
+                rating: 5,
+              },
+              {
+                text: "Melhor fade em Luxemburgo. Ambiente premium!",
+                name: "Jean-Paul D.",
+                role: "Guia Local",
+                rating: 5,
+              },
+              {
+                text: "Corte preciso e atenção aos detalhes. Excelente!",
+                name: "Thomas K.",
+                role: "Engenheiro de Software",
+                rating: 5,
+              },
+              {
+                text: "Interior impressionante e serviço impecável.",
+                name: "David Muller",
+                role: "Arquiteto",
+                rating: 4,
+              },
+              {
+                text: "Preços justos e qualidade excepcional.",
+                name: "Antoine S.",
+                role: "Estudante",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="bg-[#0C0A09] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-gray-700 rounded-full"></div>
+                  <div>
+                    <h3 className="text-lg font-bold text-[#DD9E32]">{testimonial.name}</h3>
+                    <p className="text-sm text-gray-400">{testimonial.role}</p>
+                  </div>
+                </div>
+                <p className="italic text-gray-300">"{testimonial.text}"</p>
+                <div className="mt-4 flex gap-1">
+                  {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
+                    <span key={starIndex} className="text-[#DD9E32]">★</span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }

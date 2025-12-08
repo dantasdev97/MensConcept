@@ -1,0 +1,12 @@
+{
+  "models": [
+    {
+      "name": "Mistral Large via OpenRouter",
+      "provider": "openai",
+      "model": "mistralai/mistral-large",
+      "apiBase": "https://openrouter.ai/api/v1",
+      "apiKey": "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"
+    }
+  ],
+  "defaultModel": "Mistral Large via OpenRouter"
+}

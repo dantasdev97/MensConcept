@@ -122,6 +122,12 @@ export default function Gallery() {
 
         {/* Gallery Carousel */}
         <div className="relative">
+          {/* Sombra lateral esquerda */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-r from-[#0C0A09] via-[#0C0A09]/80 to-transparent z-10 pointer-events-none"></div>
+          
+          {/* Sombra lateral direita */}
+          <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-l from-[#0C0A09] via-[#0C0A09]/80 to-transparent z-10 pointer-events-none"></div>
+          
           <Swiper
             onSwiper={setSwiper}
             effect="coverflow"
