@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import Header from '../components/Header'
 import Gallery from '../components/Gallery'
+import { Card, CardContent } from '@/components/ui/card'
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 
 export default function Home() {
   return (
@@ -139,85 +141,296 @@ export default function Home() {
     <Gallery />
 
     {/* Testemunhos Modernos */}
-    <section className="relative z-10 py-16 bg-[#1A1817] text-white">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        <motion.h2
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl font-heading mb-8 text-[#DD9E32] uppercase tracking-wide"
-        >
-          Testemunhos
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/*
-            { text: "oioiServiço incrível! Superou todas as minhas expectativas.", name: "João Silva4545" },
-            { text: "Equipe muito atenciosa e profissional. Recomendo!", name: "Maria Oliveiraiuiu" },
-            { text: "Ambiente acolhedor e serviço de alta qualidade.", name: "Pedro Santos" },
-          */}
-          { [
+    <section className="relative z-10 py-20 bg-[#0C0A09] overflow-hidden before:absolute before:inset-y-0 before:left-0 before:w-32 before:bg-gradient-to-r before:from-[#0C0A09] before:to-transparent before:z-20 after:absolute after:inset-y-0 after:right-0 after:w-32 after:bg-gradient-to-l after:from-[#0C0A09] after:to-transparent after:z-20">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4"
+          >
+            Meet our happy clients
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-white/70 font-body mb-8"
+          >
+            All of our 1000+ clients are happy
+          </motion.p>
+        </div>
+
+        {/* Testimonials - Top Row (moves right) */}
+        <div className="mb-6 overflow-hidden">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 60,
+                ease: "linear",
+              },
+            }}
+          >
+            {[
               {
-                text: "Serviço profissional e ambiente acolhedor. Recomendo!",
-                name: "Marcus Weber",
-                role: "Cliente Regular",
-                rating: 5,
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Doe",
+                role: "Developer",
+                initials: "JD",
               },
               {
-                text: "Atmosfera incrível e barbearia de alta qualidade.",
-                name: "Luca Rossi",
-                role: "Empreendedor",
-                rating: 5,
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Doe",
+                role: "CEO & Founder",
+                initials: "JD",
               },
               {
-                text: "Melhor fade em Luxemburgo. Ambiente premium!",
-                name: "Jean-Paul D.",
-                role: "Guia Local",
-                rating: 5,
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Jane Doe",
+                role: "CTO",
+                initials: "JD",
               },
               {
-                text: "Corte preciso e atenção aos detalhes. Excelente!",
-                name: "Thomas K.",
-                role: "Engenheiro de Software",
-                rating: 5,
-              },
-              {
-                text: "Interior impressionante e serviço impecável.",
-                name: "David Muller",
-                role: "Arquiteto",
-                rating: 4,
-              },
-              {
-                text: "Preços justos e qualidade excepcional.",
-                name: "Antoine S.",
-                role: "Estudante",
-                rating: 5,
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Smith",
+                role: "COO",
+                initials: "JS",
               },
             ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="bg-[#0C0A09] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gray-700 rounded-full"></div>
-                  <div>
-                    <h3 className="text-lg font-bold text-[#DD9E32]">{testimonial.name}</h3>
-                    <p className="text-sm text-gray-400">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className="italic text-gray-300">"{testimonial.text}"</p>
-                <div className="mt-4 flex gap-1">
-                  {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
-                    <span key={starIndex} className="text-[#DD9E32]">★</span>
-                  ))}
-                </div>
-              </motion.div>
+              <div key={`top-${index}`} className="flex-shrink-0 w-[280px]">
+                <Card className="shadow-lg rounded-2xl p-6 border border-white/10 bg-white/5 backdrop-blur-sm h-full">
+                  <CardContent className="flex flex-col gap-4 p-0">
+                    <p className="text-white/70 leading-relaxed font-body text-sm">
+                      &quot;{testimonial.text}&quot;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src={`/avatar${index + 1}.jpg`} />
+                        <AvatarFallback className="bg-white/10 text-white font-heading font-semibold">
+                          {testimonial.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h4 className="font-heading font-semibold text-white">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-sm text-white/60 font-body">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
-          </div>
+            {/* Duplicate for seamless loop */}
+            {[
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Doe",
+                role: "Developer",
+                initials: "JD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Doe",
+                role: "CEO & Founder",
+                initials: "JD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Jane Doe",
+                role: "CTO",
+                initials: "JD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Smith",
+                role: "COO",
+                initials: "JS",
+              },
+            ].map((testimonial, index) => (
+              <div key={`top-dup-${index}`} className="flex-shrink-0 w-[280px]">
+                <Card className="shadow-lg rounded-2xl p-6 border border-white/10 bg-white/5 backdrop-blur-sm h-full">
+                  <CardContent className="flex flex-col gap-4 p-0">
+                    <p className="text-white/70 leading-relaxed font-body text-sm">
+                      &quot;{testimonial.text}&quot;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src={`/avatar${index + 1}.jpg`} />
+                        <AvatarFallback className="bg-white/10 text-white font-heading font-semibold">
+                          {testimonial.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h4 className="font-heading font-semibold text-white">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-sm text-white/60 font-body">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </motion.div>
         </div>
-      </section>
+
+        {/* Testimonials - Bottom Row (moves left) */}
+        <div className="mb-12 overflow-hidden">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: ["-50%", "0%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 60,
+                ease: "linear",
+              },
+            }}
+          >
+            {[
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Richard Doe",
+                role: "Designer",
+                initials: "RD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Gordon Doe",
+                role: "Developer",
+                initials: "GD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Doe",
+                role: "CEO & Founder",
+                initials: "JD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Jane Doe",
+                role: "CTO",
+                initials: "JD",
+              },
+            ].map((testimonial, index) => (
+              <div key={`bottom-${index}`} className="flex-shrink-0 w-[280px]">
+                <Card className="shadow-lg rounded-2xl p-6 border border-white/10 bg-white/5 backdrop-blur-sm h-full">
+                  <CardContent className="flex flex-col gap-4 p-0">
+                    <p className="text-white/70 leading-relaxed font-body text-sm">
+                      &quot;{testimonial.text}&quot;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src={`/avatar${index + 5}.jpg`} />
+                        <AvatarFallback className="bg-white/10 text-white font-heading font-semibold">
+                          {testimonial.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h4 className="font-heading font-semibold text-white">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-sm text-white/60 font-body">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {[
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Richard Doe",
+                role: "Designer",
+                initials: "RD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Gordon Doe",
+                role: "Developer",
+                initials: "GD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "John Doe",
+                role: "CEO & Founder",
+                initials: "JD",
+              },
+              {
+                text: "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? lusto id ut omnis repellat.",
+                name: "Jane Doe",
+                role: "CTO",
+                initials: "JD",
+              },
+            ].map((testimonial, index) => (
+              <div key={`bottom-dup-${index}`} className="flex-shrink-0 w-[280px]">
+                <Card className="shadow-lg rounded-2xl p-6 border border-white/10 bg-white/5 backdrop-blur-sm h-full">
+                  <CardContent className="flex flex-col gap-4 p-0">
+                    <p className="text-white/70 leading-relaxed font-body text-sm">
+                      &quot;{testimonial.text}&quot;
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src={`/avatar${index + 5}.jpg`} />
+                        <AvatarFallback className="bg-white/10 text-white font-heading font-semibold">
+                          {testimonial.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h4 className="font-heading font-semibold text-white">
+                          {testimonial.name}
+                        </h4>
+                        <p className="text-sm text-white/60 font-body">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Add Comment Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-[#DD9E32] text-white font-heading font-bold rounded-lg hover:bg-[#C88A1F] transition-colors shadow-lg shadow-[#DD9E32]/30 hover:shadow-xl hover:shadow-[#DD9E32]/40"
+          >
+            Add a Comment
+          </motion.button>
+        </motion.div>
+      </div>
+    </section>
     </>
   )
 }

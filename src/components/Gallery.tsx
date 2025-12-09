@@ -47,13 +47,6 @@ const galleryImages: GalleryImage[] = [
     alt: 'Modern Fade',
     title: 'Modern Styles',
     description: 'Contemporary fade techniques and trendy cuts that reflect your unique sense of style.'
-  },
-  {
-    id: 5,
-    src: '/images/gallery-5.jpg',
-    alt: 'Complete Grooming',
-    title: 'Full Service',
-    description: 'Complete grooming experience combining haircut, beard trim, and premium styling products.'
   }
 ]
 
@@ -63,9 +56,16 @@ export default function Gallery() {
 
   useEffect(() => {
     if (swiper) {
-      swiper.on('slideChange', () => {
+      const handleSlideChange = () => {
         setActiveIndex(swiper.activeIndex)
-      })
+      }
+
+      swiper.on('slideChange', handleSlideChange)
+
+      // Cleanup function to remove event listener
+      return () => {
+        swiper.off('slideChange', handleSlideChange)
+      }
     }
   }, [swiper])
 
@@ -142,7 +142,7 @@ export default function Gallery() {
               slideShadows: true,
             }}
             autoplay={{
-              delay: 4000,
+              delay: 6000,
               disableOnInteraction: false,
             }}
             pagination={{
