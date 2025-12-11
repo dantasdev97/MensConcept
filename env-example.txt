@@ -1,0 +1,7 @@
+# Google Places API Configuration
+# Obtenha sua chave da API em: https://console.developers.google.com/
+VITE_GOOGLE_PLACES_API_KEY=your_google_places_api_key_here
+
+# Place ID do seu negócio no Google
+# Você pode encontrar o Place ID usando: https://developers.google.com/places/place-id
+VITE_GOOGLE_BUSINESS_PLACE_ID=your_google_business_place_id_here

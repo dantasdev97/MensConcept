@@ -13,5 +13,16 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Garantir que o arquivo .env seja carregado
+  envDir: '.',
+  server: {
+    proxy: {
+      '/api/google-places': {
+        target: 'https://maps.googleapis.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/google-places/, '/maps/api'),
+      },
+    },
+  },
 })
 

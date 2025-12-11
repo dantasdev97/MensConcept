@@ -4,11 +4,17 @@ export const products: Product[] = [
   // MODELADORES
   {
     id: 1,
-    name: "Pomada Modeladora Strong Hold",
+    name: "West Beard Oil",
     price: 14.90,
     oldPrice: 19.90,
-    category: "Modeladores",
-    description: "Fixação forte sem resíduos. Mantém o penteado impecável o dia todo.",
+    category: "Shampoo",
+    description:
+	
+	
+	"Fixação forte sem resíduos. Mantém o penteado impecável o dia todo.",
+
+
+
     benefits: [
       "Fixação forte",
       "Não deixa o cabelo oleoso",
@@ -17,21 +23,29 @@ export const products: Product[] = [
     ],
     howToUse: "Aplique uma pequena quantidade nas mãos e modele no cabelo seco ou úmido.",
     rating: 4.9,
-    image: "/products/pomada1.jpg",
+    image: "/products/shampoobarbablue300ml-.png",
     gallery: [
-      "/products/pomada1.jpg",
+      "/products/shampoobarbablue300ml-.png",
       "/products/pomada2.jpg",
       "/products/pomada3.jpg",
     ],
     video: "/products/pomada-video.mp4",
-    tags: ["Mais Vendido", "Premium"],
+    tags: ["Best Seller", "Premium"],
   },
   {
     id: 2,
-    name: "Gel Modelador Matte Finish",
+    name: "Hair and Beard Shampoo",
     price: 12.90,
-    category: "Modeladores",
-    description: "Gel de fixação média com acabamento matte natural para cabelos.",
+    category: "Shampoo",
+    description:
+	
+	
+	"The Biker Skull Hair and Beard Shampoo is the perfect all-in-one solution for men who value practicality and performance. Specially formulated to cleanse both hair and beard, it removes dirt, excess oil, and impurities while maintaining hydration and leaving a refreshing, clean feeling.",
+
+
+
+
+
     benefits: [
       "Acabamento matte",
       "Fixação média",
@@ -40,20 +54,24 @@ export const products: Product[] = [
     ],
     howToUse: "Aplique no cabelo úmido, distribua uniformemente e modele como desejar.",
     rating: 4.7,
-    image: "/products/gel1.jpg",
+    image: "/products/shampoobarbacabelo.png",
     gallery: [
       "/products/gel1.jpg",
       "/products/gel2.jpg",
     ],
-    tags: ["Novo"],
+    tags: ["New"],
   },
   {
     id: 3,
-    name: "Cera Modeladora Texturizadora",
+    name: "Hair and Beard Shampoo",
     price: 16.90,
     oldPrice: 21.90,
-    category: "Modeladores",
-    description: "Cera premium para criar texturas e acabamentos únicos.",
+    category: "Shampoo",
+    description: 
+	
+	"The Biker Skull Hair and Beard Shampoo is the perfect all-in-one solution for men who value practicality and performance. Specially formulated to cleanse both hair and beard, it removes dirt, excess oil, and impurities while maintaining hydration and leaving a refreshing, clean feeling.",
+
+	
     benefits: [
       "Criação de texturas",
       "Flexibilidade no styling",
@@ -62,13 +80,13 @@ export const products: Product[] = [
     ],
     howToUse: "Pegue uma pequena quantidade, esfregue nas mãos e aplique no cabelo seco.",
     rating: 4.8,
-    image: "/products/cera1.jpg",
+    image: "/products/shampoobarbacabelo.png",
     gallery: [
-      "/products/cera1.jpg",
-      "/products/cera2.jpg",
-      "/products/cera3.jpg",
+      "",
+      "/",
+      "/",
     ],
-    tags: ["Premium", "Profissional"],
+    tags: ["Professional"],
   },
 
   // BARBA
@@ -76,7 +94,7 @@ export const products: Product[] = [
     id: 4,
     name: "Óleo para Barba Premium",
     price: 18.90,
-    category: "Barba",
+    category: "Beard",
     description: "Óleo nutritivo que hidrata e dá brilho à barba.",
     benefits: [
       "Hidratação profunda",
@@ -91,14 +109,14 @@ export const products: Product[] = [
       "/products/oleo-barba1.jpg",
       "/products/oleo-barba2.jpg",
     ],
-    tags: ["Mais Vendido", "Natural"],
+    tags: ["Best Seller", "Natural"],
   },
   {
     id: 5,
-    name: "Bálsamo para Barba Conditioning",
+    name: "Bálsamo para Barba" ,
     price: 15.90,
     oldPrice: 19.90,
-    category: "Barba",
+    category: "Beard",
     description: "Bálsamo condicionado que suaviza e dá forma à barba.",
     benefits: [
       "Suaviza os pelos",
@@ -108,18 +126,18 @@ export const products: Product[] = [
     ],
     howToUse: "Aplique uma pequena quantidade na barba úmida após o banho.",
     rating: 4.6,
-    image: "/products/balsamo-barba1.jpg",
+    image: "/",
     gallery: [
-      "/products/balsamo-barba1.jpg",
-      "/products/balsamo-barba2.jpg",
+      "/",
+      "/",
     ],
-    tags: ["Promoção"],
+    tags: ["On Sale"],
   },
   {
     id: 6,
     name: "Creme de Barbear Tradicional",
     price: 13.90,
-    category: "Barba",
+    category: "Beard",
     description: "Creme cremoso para um barbear suave e confortável.",
     benefits: [
       "Proteção da pele",
@@ -134,7 +152,7 @@ export const products: Product[] = [
       "/products/creme-barbear1.jpg",
       "/products/creme-barbear2.jpg",
     ],
-    tags: ["Clássico", "Profissional"],
+    tags: ["Classic", "Professional"],
   },
 
   // PELE
@@ -142,7 +160,7 @@ export const products: Product[] = [
     id: 7,
     name: "Loção Pós-Barbear Calmante",
     price: 11.90,
-    category: "Pele",
+    category: "Beard",
     description: "Loção refrescante que acalma a pele após o barbear.",
     benefits: [
       "Alívio instantâneo",
@@ -157,14 +175,14 @@ export const products: Product[] = [
       "/products/locao-pos1.jpg",
       "/products/locao-pos2.jpg",
     ],
-    tags: ["Essencial", "Natural"],
+    tags: ["Essential", "Natural"],
   },
   {
     id: 8,
     name: "Hidratante Facial Masculino",
     price: 17.90,
     oldPrice: 22.90,
-    category: "Pele",
+    category: "Beard",
     description: "Hidratante não oleoso específico para pele masculina.",
     benefits: [
       "Hidratação 24h",
@@ -174,12 +192,12 @@ export const products: Product[] = [
     ],
     howToUse: "Aplique pela manhã e à noite no rosto limpo com movimentos ascendentes.",
     rating: 4.5,
-    image: "/products/hidratante1.jpg",
+    image: "",
     gallery: [
-      "/products/hidratante1.jpg",
-      "/products/hidratante2.jpg",
+      "/",
+      "/",
     ],
-    tags: ["Novo", "Promoção"],
+    tags: ["New", "On Sale"],
   },
 
   // FERRAMENTAS
@@ -187,7 +205,7 @@ export const products: Product[] = [
     id: 9,
     name: "Pente de Madeira Profissional",
     price: 8.90,
-    category: "Ferramentas",
+    category: "Tools",
     description: "Pente de madeira resistente ideal para todos os tipos de cabelo.",
     benefits: [
       "Material natural",
@@ -197,18 +215,18 @@ export const products: Product[] = [
     ],
     howToUse: "Use diariamente para pentear e modelar o cabelo.",
     rating: 4.8,
-    image: "/products/pente1.jpg",
+    image: "",
     gallery: [
-      "/products/pente1.jpg",
-      "/products/pente2.jpg",
+      "/",
+      "/",
     ],
-    tags: ["Essencial", "Profissional"],
+    tags: ["Essential", "Professional"],
   },
   {
     id: 10,
     name: "Escova para Barba Premium",
     price: 12.90,
-    category: "Ferramentas",
+    category: "Tools",
     description: "Escova natural perfeita para limpeza e modelagem da barba.",
     benefits: [
       "Cerdas naturais",
@@ -232,7 +250,7 @@ export const products: Product[] = [
     name: "Kit Barba Completo Premium",
     price: 39.90,
     oldPrice: 49.90,
-    category: "Kits",
+    category: "Beard",
     description: "Kit completo com tudo que você precisa para cuidar da barba.",
     benefits: [
       "Produtos essenciais",
@@ -248,13 +266,13 @@ export const products: Product[] = [
       "/products/kit-barba2.jpg",
       "/products/kit-barba3.jpg",
     ],
-    tags: ["Mais Vendido", "Kit Completo"],
+    tags: ["Best Seller", "Complete Kit"],
   },
   {
     id: 12,
     name: "Kit Cabelo + Barba Essential",
     price: 34.90,
-    category: "Kits",
+    category: "Beard",
     description: "Kit perfeito para cuidados completos com cabelo e barba.",
     benefits: [
       "Cuidados completos",
@@ -269,7 +287,7 @@ export const products: Product[] = [
       "/products/kit-completo1.jpg",
       "/products/kit-completo2.jpg",
     ],
-    tags: ["Popular", "Completo"],
+    tags: ["Popular", "Complete"],
   },
 
   // LANÇAMENTOS
@@ -277,7 +295,7 @@ export const products: Product[] = [
     id: 13,
     name: "Spray Fixador Invisible",
     price: 16.90,
-    category: "Modeladores",
+    category: "Oil",
     description: "Spray de fixação invisível com tecnologia avançada.",
     benefits: [
       "Fixação invisível",
@@ -293,14 +311,14 @@ export const products: Product[] = [
       "/products/spray2.jpg",
     ],
     video: "/products/spray-video.mp4",
-    tags: ["Novo", "Tecnologia"],
+    tags: ["New", "Technology"],
   },
   {
     id: 14,
     name: "Óleo de Argan para Barba",
     price: 22.90,
     oldPrice: 27.90,
-    category: "Barba",
+    category: "Beard",
     description: "Óleo puro de argan marroquino para barba luxuosa.",
     benefits: [
       "100% natural",
@@ -315,13 +333,13 @@ export const products: Product[] = [
       "/products/argan-barba1.jpg",
       "/products/argan-barba2.jpg",
     ],
-    tags: ["Premium", "Natural", "Promoção"],
+    tags: ["Premium", "Natural", "On Sale"],
   },
   {
     id: 15,
     name: "Shampoo Sólido Artesanal",
     price: 9.90,
-    category: "Cuidados",
+    category: "Shampoo",
     description: "Shampoo sólido feito à mão com ingredientes naturais.",
     benefits: [
       "100% natural",
@@ -336,7 +354,7 @@ export const products: Product[] = [
       "/products/shampoo-solido1.jpg",
       "/products/shampoo-solido2.jpg",
     ],
-    tags: ["Sustentável", "Natural"],
+    tags: ["Sustainable", "Natural"],
   },
 ]
 

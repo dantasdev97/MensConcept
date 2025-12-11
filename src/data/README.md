@@ -25,12 +25,10 @@ interface Product {
 
 ## Categorias Disponíveis
 
-- **Modeladores**: Pomadas, géis, ceras para cabelo
-- **Barba**: Óleos, bálsamos, cremes para barba
-- **Pele**: Loções pós-barba, hidratantes
-- **Ferramentas**: Pentes, escovas, acessórios
-- **Kits**: Conjuntos de produtos
-- **Cuidados**: Shampoos, cuidados especiais
+- **Shampoo**: Shampoos for hair and beard
+- **Beard**: Beard care products (oils, balms, creams, kits)
+- **Oil**: Styling oils and conditioners
+- **Tools**: Barber tools and accessories
 
 ## Como Usar
 
@@ -97,7 +95,7 @@ src/
 
 ## Tags Disponíveis
 
-- `Mais Vendido` - Produtos populares
+- `Mais 333` - Produtos populares
 - `Novo` - Lançamentos recentes
 - `Premium` - Produtos de alta qualidade
 - `Natural` - Ingredientes naturais
