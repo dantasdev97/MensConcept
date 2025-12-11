@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import Header from '../components/Header'
 import Gallery from '../components/Gallery'
+import FeaturedProducts from '../components/FeaturedProducts'
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 
@@ -139,6 +140,9 @@ export default function Home() {
     
     {/* Gallery Section */}
     <Gallery />
+
+    {/* Featured Products Section */}
+    <FeaturedProducts />
 
     {/* Testemunhos Modernos */}
     <section className="relative z-10 py-20 bg-[#0C0A09] overflow-hidden before:absolute before:inset-y-0 before:left-0 before:w-32 before:bg-gradient-to-r before:from-[#0C0A09] before:to-transparent before:z-20 after:absolute after:inset-y-0 after:right-0 after:w-32 after:bg-gradient-to-l after:from-[#0C0A09] after:to-transparent after:z-20">

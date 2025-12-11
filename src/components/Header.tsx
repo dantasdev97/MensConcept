@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -107,15 +108,18 @@ export default function Header() {
               className="mt-4 overflow-hidden"
             >
               <div className="flex flex-col gap-4 py-4">
-                <a href="/" className="text-white hover:text-[#DD9E32] transition-colors font-body">
+                <Link to="/" className="text-white hover:text-[#DD9E32] transition-colors font-body">
                   Home
-                </a>
-                <a href="/about" className="text-white hover:text-[#DD9E32] transition-colors font-body">
+                </Link>
+                <Link to="/about" className="text-white hover:text-[#DD9E32] transition-colors font-body">
                   About
-                </a>
-                <a href="/services" className="text-white hover:text-[#DD9E32] transition-colors font-body">
+                </Link>
+                <Link to="/services" className="text-white hover:text-[#DD9E32] transition-colors font-body">
                   Services
-                </a>
+                </Link>
+                <Link to="/products-demo" className="text-white hover:text-[#DD9E32] transition-colors font-body">
+                  Produtos
+                </Link>
               </div>
             </motion.nav>
           )}
