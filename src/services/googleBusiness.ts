@@ -3,7 +3,7 @@ import { GoogleReview } from '../types/review'
 
 const API_BASE_URL = import.meta.env.DEV
   ? '/api/google-places/place'
-  : '/api/google-reviews'
+  : '/api/googleReviews'
 
 export async function fetchGoogleReviews(): Promise<GoogleReview[]> {
   // Verificar se as variáveis estão definidas e não são vazias
