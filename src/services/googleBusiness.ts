@@ -19,8 +19,8 @@ export async function fetchGoogleReviews(): Promise<GoogleReview[]> {
 
   try {
     const url = import.meta.env.DEV
-      ? `${API_BASE_URL}/details/json?place_id=${placeId}&fields=reviews,rating,user_ratings_total&key=${apiKey}&reviews_sort=newest`
-      : `${API_BASE_URL}?place_id=${placeId}&fields=reviews,rating,user_ratings_total&key=${apiKey}&reviews_sort=newest`
+      ? `${API_BASE_URL}/details/json?place_id=${placeId}&fields=reviews,rating,user_ratings_total&key=${apiKey}&reviews_sort=newest&reviews_no_translations=true`
+      : `${API_BASE_URL}?place_id=${placeId}&fields=reviews,rating,user_ratings_total&key=${apiKey}&reviews_sort=newest&reviews_no_translations=true`
     console.log('Fazendo requisição para Google Places API...')
     console.log('URL:', import.meta.env.DEV ? url : url.replace(apiKey, 'API_KEY_OCULTA'))
 

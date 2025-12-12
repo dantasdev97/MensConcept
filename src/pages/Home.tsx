@@ -21,11 +21,11 @@ export default function Home() {
   // Animation duration - faster on mobile
   const animationDuration = 60 // 60 seconds for auto scroll
 
-  // Limitar a 12 reviews reais, dividido em duas fileiras de 6 cada
-  const maxReviews = 12
+  // Limitar a 14 reviews reais, dividido em duas fileiras de 7 cada
+  const maxReviews = 14
   const displayedReviews = reviews.slice(0, maxReviews)
-  const topRowReviews = displayedReviews.slice(0, 6) // Primeiros 6 para fileira superior
-  const bottomRowReviews = displayedReviews.slice(6, 12) // Próximos 6 para fileira inferior
+  const topRowReviews = displayedReviews.slice(0, 7) // Primeiros 7 para fileira superior
+  const bottomRowReviews = displayedReviews.slice(7, 14) // Próximos 7 para fileira inferior
 
   // Handlers para interação do usuário
   const handleInteractionStart = () => {

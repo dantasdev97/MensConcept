@@ -1,360 +1,204 @@
 import { Product } from '../types/product'
 
 export const products: Product[] = [
-  // MODELADORES
+  // HAIR WAXES (2 products)
   {
     id: 1,
-    name: "West Beard Oil",
+    name: "Shine Effect Hair Wax 100ml",
     price: 14.90,
     oldPrice: 19.90,
-    category: "Shampoo",
-    description:
-	
-	
-	"Fixação forte sem resíduos. Mantém o penteado impecável o dia todo.",
-
-
-
+    category: "Wax",
+    description: "Achieve a polished, high-shine finish with our Shine Effect Hair Wax 100ml. Designed for modern men in Luxembourg, this wax provides flexible control, glossy texture, and long-lasting definition without greasiness. Perfect for sleek, elegant hairstyles.",
     benefits: [
-      "Fixação forte",
-      "Não deixa o cabelo oleoso",
-      "Aroma masculino premium",
-      "Ideal para penteados modernos",
+      "Provides a clean, glossy shine without residue",
+      "Flexible hold for everyday styling",
+      "Smooth, modern fragrance suitable for all hair types",
+      "Perfect for modern hairstyles",
     ],
-    howToUse: "Aplique uma pequena quantidade nas mãos e modele no cabelo seco ou úmido.",
+    howToUse: "Apply a small amount to hands and style on dry or damp hair.",
     rating: 4.9,
-    image: "/products/shampoobarbablue300ml-.png",
+    image: "/products/cerabrilho100ml.png",
     gallery: [
-      "/products/shampoobarbablue300ml-.png",
-      "/products/pomada2.jpg",
-      "/products/pomada3.jpg",
+      
     ],
-    video: "/products/pomada-video.mp4",
     tags: ["Best Seller", "Premium"],
   },
   {
     id: 2,
-    name: "Hair and Beard Shampoo",
-    price: 12.90,
-    category: "Shampoo",
-    description:
-	
-	
-	"The Biker Skull Hair and Beard Shampoo is the perfect all-in-one solution for men who value practicality and performance. Specially formulated to cleanse both hair and beard, it removes dirt, excess oil, and impurities while maintaining hydration and leaving a refreshing, clean feeling.",
-
-
-
-
-
+    name: "Matt Strong Hold Wax 100ml",
+    price: 16.90,
+    oldPrice: 21.90,
+    category: "Wax",
+    description: "Get a powerful matte finish with our Matt Strong Hold Wax 100ml. Ideal for men in Luxembourg looking for texture, volume, and all-day control. Delivers a natural look with zero shine and a strong, lasting hold.",
     benefits: [
-      "Acabamento matte",
-      "Fixação média",
-      "Não deixa resíduos brancos",
-      "Durabilidade todo o dia",
+      "Strong, long-lasting hold for structured styles",
+      "Matte, natural finish with no shine",
+      "No white residue",
+      
     ],
-    howToUse: "Aplique no cabelo úmido, distribua uniformemente e modele como desejar.",
-    rating: 4.7,
-    image: "/products/shampoobarbacabelo.png",
+    howToUse: "Apply to damp hair, distribute evenly and style as desired.",
+    rating: 4.8,
+    image: "/products/ceramattforte100ml.png",
     gallery: [
-      "/products/gel1.jpg",
-      "/products/gel2.jpg",
+      "/products/shop2.png",
+      "/products/wax-matte-finish-2.jpg",
     ],
-    tags: ["New"],
+    tags: ["Professional", "New"],
   },
+
+  // SHAMPOOS (2 products)
   {
     id: 3,
-    name: "Hair and Beard Shampoo",
+    name: "Beard Shampoo 300ml",
+    price: 12.90,
+    category: "Shampoo",
+    description: "A premium Beard Shampoo designed to cleanse, soften, and hydrate facial hair. Perfect for men in Luxembourg seeking a healthy, itch-free beard with a fresh, masculine scent. Removes impurities without stripping natural oils.",
+    benefits: [
+      "Deep cleansing without drying the beard",
+      "Reduces itchiness and beard dandruff",
+      "Softens and hydrates coarse beard hair",
+      "Fresh masculine fragrance for daily use",
+    ],
+    howToUse: "Apply to wet hair and beard, massage gently, then rinse thoroughly.",
+    rating: 4.7,
+    image: "/products/shampoobarbablue300.png",
+    gallery: [
+      
+    ],
+    tags: ["Essential"],
+  },
+  {
+    id: 4,
+    name: "Hair & Beard Shampoo",
     price: 16.90,
     oldPrice: 21.90,
     category: "Shampoo",
-    description: 
-	
-	"The Biker Skull Hair and Beard Shampoo is the perfect all-in-one solution for men who value practicality and performance. Specially formulated to cleanse both hair and beard, it removes dirt, excess oil, and impurities while maintaining hydration and leaving a refreshing, clean feeling.",
-
-	
+    description: "A versatile 2-in-1 Hair & Beard Shampoo formulated for modern men in Luxembourg. Cleanses both hair and beard with balanced hydration, leaving everything fresh, soft, and easy to style.",
     benefits: [
-      "Criação de texturas",
-      "Flexibilidade no styling",
-      "Aroma sofisticado",
-      "Efeito duradouro",
+      "Cleans hair and beard in one simple step",
+      "Hydrates and reduces dryness",
+      "Suitable for all hair and beard types",
+      "Fresh daily-use formula with a clean scent",
     ],
-    howToUse: "Pegue uma pequena quantidade, esfregue nas mãos e aplique no cabelo seco.",
+    howToUse: "Apply to wet hair, massage into scalp and beard, rinse well.",
     rating: 4.8,
-    image: "/products/shampoobarbacabelo.png",
+    image: "/products/shampoobarbablue300ml.png",
     gallery: [
-      "",
-      "/",
-      "/",
+      "/products/shampoo-premium.jpg",
+      "/products/shampoo-premium-2.jpg",
     ],
-    tags: ["Professional"],
+    tags: ["Premium", "Best Seller"],
   },
 
-  // BARBA
-  {
-    id: 4,
-    name: "Óleo para Barba Premium",
-    price: 18.90,
-    category: "Beard",
-    description: "Óleo nutritivo que hidrata e dá brilho à barba.",
-    benefits: [
-      "Hidratação profunda",
-      "Brilho natural",
-      "Reduz coceira",
-      "Aroma masculino intenso",
-    ],
-    howToUse: "Aplique algumas gotas na barba limpa, massageie e penteie.",
-    rating: 4.9,
-    image: "/products/oleo-barba1.jpg",
-    gallery: [
-      "/products/oleo-barba1.jpg",
-      "/products/oleo-barba2.jpg",
-    ],
-    tags: ["Best Seller", "Natural"],
-  },
   {
     id: 5,
-    name: "Bálsamo para Barba" ,
-    price: 15.90,
-    oldPrice: 19.90,
-    category: "Beard",
-    description: "Bálsamo condicionado que suaviza e dá forma à barba.",
+    name: "Anti-Hair Loss Shampoo",
+    price: 16.90,
+    oldPrice: 21.90,
+    category: "Shampoo",
+    description: "A targeted Anti-Hair Loss Shampoo designed to reduce hair fall, strengthen roots, and promote healthy growth. Ideal for men in Luxembourg who want thicker, stronger, and more resilient hair.",
     benefits: [
-      "Suaviza os pelos",
-      "Facilita o penteado",
-      "Hidratação duradoura",
-      "Controle de frizz",
+      "Helps prevent hair loss and breakage",
+      "Strengthens roots and improves scalp health",
+      "Promotes thicker, fuller hair",
+      "Energizing formula ideal for daily use",
     ],
-    howToUse: "Aplique uma pequena quantidade na barba úmida após o banho.",
-    rating: 4.6,
-    image: "/",
+    howToUse: "Apply to wet hair, massage into scalp and beard, rinse well.",
+    rating: 4.8,
+    image: "/products/shampooantiqueda.jpg",
     gallery: [
-      "/",
-      "/",
+      "/products/shampoo-premium.jpg",
+      "/products/shampoo-premium-2.jpg",
     ],
-    tags: ["On Sale"],
+    tags: ["Premium", "Best Seller"],
   },
+  // SCISSORS (2 products)
   {
     id: 6,
-    name: "Creme de Barbear Tradicional",
-    price: 13.90,
-    category: "Beard",
-    description: "Creme cremoso para um barbear suave e confortável.",
+    name: "Professional Hair Cutting Scissors",
+    price: 45.90,
+    category: "Scissors",
+    description: "Professional grade stainless steel scissors designed for precision hair cutting and styling.",
     benefits: [
-      "Proteção da pele",
-      "Facilita o deslize da lâmina",
-      "Hidratação instantânea",
-      "Aroma clássico",
+      "Surgical stainless steel",
+      "Precision cutting",
+      "Comfortable grip",
+      "Professional quality",
     ],
-    howToUse: "Aplique uma camada fina no rosto úmido antes da barba.",
-    rating: 4.8,
-    image: "/products/creme-barbear1.jpg",
+    howToUse: "Use for professional hair cutting. Clean and oil regularly for maintenance.",
+    rating: 4.9,
+    image: "/products/scissors-professional.jpg",
     gallery: [
-      "/products/creme-barbear1.jpg",
-      "/products/creme-barbear2.jpg",
+      "/products/scissors-professional.jpg",
+      "/products/scissors-professional-2.jpg",
     ],
-    tags: ["Classic", "Professional"],
+    tags: ["Professional", "Essential"],
   },
-
-  // PELE
   {
     id: 7,
-    name: "Loção Pós-Barbear Calmante",
-    price: 11.90,
-    category: "Beard",
-    description: "Loção refrescante que acalma a pele após o barbear.",
+    name: "Beard Trimming Scissors",
+    price: 28.90,
+    category: "Scissors",
+    description: "Specialized scissors for precise beard trimming and shaping. Perfect for home and professional use.",
     benefits: [
-      "Alívio instantâneo",
-      "Reduz irritações",
-      "Hidratação profunda",
-      "Aroma refrescante",
+      "Beard-specific design",
+      "Precision trimming",
+      "Comfortable handle",
+      "Durable construction",
     ],
-    howToUse: "Aplique suavemente no rosto após a barba com movimentos circulares.",
+    howToUse: "Use for trimming and shaping beard. Clean after each use.",
     rating: 4.7,
-    image: "/products/locao-pos1.jpg",
+    image: "/products/scissors-beard.jpg",
     gallery: [
-      "/products/locao-pos1.jpg",
-      "/products/locao-pos2.jpg",
+      "/products/scissors-beard.jpg",
+      "/products/scissors-beard-2.jpg",
     ],
-    tags: ["Essential", "Natural"],
+    tags: ["Essential", "Popular"],
   },
+
+  // BEARD SOFTENER SPRAYS (2 products)
   {
     id: 8,
-    name: "Hidratante Facial Masculino",
-    price: 17.90,
-    oldPrice: 22.90,
-    category: "Beard",
-    description: "Hidratante não oleoso específico para pele masculina.",
+    name: "Beard Softener Spray - Hydrating",
+    price: 18.90,
+    category: "Spray",
+    description: "Hydrating beard softener spray that tames and softens beard hair while providing intense moisture.",
     benefits: [
-      "Hidratação 24h",
-      "Absorção rápida",
-      "Não deixa brilho",
-      "Para todos os tipos de pele",
+      "Deep hydration",
+      "Softens coarse hair",
+      "Tames flyaways",
+      "Long-lasting moisture",
     ],
-    howToUse: "Aplique pela manhã e à noite no rosto limpo com movimentos ascendentes.",
-    rating: 4.5,
-    image: "",
+    howToUse: "Spray evenly on clean, dry beard. Comb through for even distribution.",
+    rating: 4.8,
+    image: "/products/spray-hydrating.jpg",
     gallery: [
-      "/",
-      "/",
+      "/products/spray-hydrating.jpg",
+      "/products/spray-hydrating-2.jpg",
     ],
-    tags: ["New", "On Sale"],
+    tags: ["New", "Hydrating"],
   },
-
-  // FERRAMENTAS
   {
     id: 9,
-    name: "Pente de Madeira Profissional",
-    price: 8.90,
-    category: "Tools",
-    description: "Pente de madeira resistente ideal para todos os tipos de cabelo.",
-    benefits: [
-      "Material natural",
-      "Durabilidade extrema",
-      "Dentes largos e finos",
-      "Design ergonômico",
-    ],
-    howToUse: "Use diariamente para pentear e modelar o cabelo.",
-    rating: 4.8,
-    image: "",
-    gallery: [
-      "/",
-      "/",
-    ],
-    tags: ["Essential", "Professional"],
-  },
-  {
-    id: 10,
-    name: "Escova para Barba Premium",
-    price: 12.90,
-    category: "Tools",
-    description: "Escova natural perfeita para limpeza e modelagem da barba.",
-    benefits: [
-      "Cerdas naturais",
-      "Limpeza profunda",
-      "Distribui produtos uniformemente",
-      "Durável",
-    ],
-    howToUse: "Use para aplicar óleos e bálsamos, e para pentear a barba.",
-    rating: 4.6,
-    image: "/products/escova-barba1.jpg",
-    gallery: [
-      "/products/escova-barba1.jpg",
-      "/products/escova-barba2.jpg",
-    ],
-    tags: ["Premium"],
-  },
-
-  // KITS
-  {
-    id: 11,
-    name: "Kit Barba Completo Premium",
-    price: 39.90,
-    oldPrice: 49.90,
-    category: "Beard",
-    description: "Kit completo com tudo que você precisa para cuidar da barba.",
-    benefits: [
-      "Produtos essenciais",
-      "Economia no valor",
-      "Qualidade profissional",
-      "Para todos os tipos de barba",
-    ],
-    howToUse: "Siga as instruções de cada produto individualmente.",
-    rating: 4.9,
-    image: "/products/kit-barba1.jpg",
-    gallery: [
-      "/products/kit-barba1.jpg",
-      "/products/kit-barba2.jpg",
-      "/products/kit-barba3.jpg",
-    ],
-    tags: ["Best Seller", "Complete Kit"],
-  },
-  {
-    id: 12,
-    name: "Kit Cabelo + Barba Essential",
-    price: 34.90,
-    category: "Beard",
-    description: "Kit perfeito para cuidados completos com cabelo e barba.",
-    benefits: [
-      "Cuidados completos",
-      "Produtos compatíveis",
-      "Aroma coordenado",
-      "Valor acessível",
-    ],
-    howToUse: "Use os produtos de acordo com suas necessidades diárias.",
-    rating: 4.7,
-    image: "/products/kit-completo1.jpg",
-    gallery: [
-      "/products/kit-completo1.jpg",
-      "/products/kit-completo2.jpg",
-    ],
-    tags: ["Popular", "Complete"],
-  },
-
-  // LANÇAMENTOS
-  {
-    id: 13,
-    name: "Spray Fixador Invisible",
+    name: "Beard Softener Spray - Oil Control",
     price: 16.90,
-    category: "Oil",
-    description: "Spray de fixação invisível com tecnologia avançada.",
+    oldPrice: 21.90,
+    category: "Spray",
+    description: "Oil-control beard softener spray that manages excess oil while keeping beard soft and manageable.",
     benefits: [
-      "Fixação invisível",
-      "Sem resíduos",
-      "Proteção térmica",
-      "Durabilidade extrema",
+      "Oil control",
+      "Softens beard",
+      "Controls shine",
+      "Refreshing formula",
     ],
-    howToUse: "Pulverize a 20-30cm de distância e modele com as mãos.",
-    rating: 4.8,
-    image: "/products/spray1.jpg",
+    howToUse: "Spray on beard as needed throughout the day. Comb through for best results.",
+    rating: 4.6,
+    image: "/products/spray-oil-control.jpg",
     gallery: [
-      "/products/spray1.jpg",
-      "/products/spray2.jpg",
+      "/products/spray-oil-control.jpg",
+      "/products/spray-oil-control-2.jpg",
     ],
-    video: "/products/spray-video.mp4",
-    tags: ["New", "Technology"],
-  },
-  {
-    id: 14,
-    name: "Óleo de Argan para Barba",
-    price: 22.90,
-    oldPrice: 27.90,
-    category: "Beard",
-    description: "Óleo puro de argan marroquino para barba luxuosa.",
-    benefits: [
-      "100% natural",
-      "Hidratação intensa",
-      "Brilho natural",
-      "Aroma sutil",
-    ],
-    howToUse: "Aplique 2-3 gotas na barba diariamente.",
-    rating: 4.9,
-    image: "/products/argan-barba1.jpg",
-    gallery: [
-      "/products/argan-barba1.jpg",
-      "/products/argan-barba2.jpg",
-    ],
-    tags: ["Premium", "Natural", "On Sale"],
-  },
-  {
-    id: 15,
-    name: "Shampoo Sólido Artesanal",
-    price: 9.90,
-    category: "Shampoo",
-    description: "Shampoo sólido feito à mão com ingredientes naturais.",
-    benefits: [
-      "100% natural",
-      "Sem plástico",
-      "Limpeza profunda",
-      "Aroma masculino",
-    ],
-    howToUse: "Umedeça o cabelo, esfregue o shampoo sólido e enxágue.",
-    rating: 4.5,
-    image: "/products/shampoo-solido1.jpg",
-    gallery: [
-      "/products/shampoo-solido1.jpg",
-      "/products/shampoo-solido2.jpg",
-    ],
-    tags: ["Sustainable", "Natural"],
+    tags: ["On Sale", "Popular"],
   },
 ]
 
@@ -368,11 +212,11 @@ export const getProductsByCategory = (category: string): Product[] => {
 }
 
 export const getFeaturedProducts = (): Product[] => {
-  return products.filter(product => product.tags.includes("Mais Vendido"))
+  return products.filter(product => product.tags.includes("Best Seller"))
 }
 
 export const getNewProducts = (): Product[] => {
-  return products.filter(product => product.tags.includes("Novo"))
+  return products.filter(product => product.tags.includes("New"))
 }
 
 export const getProductsOnSale = (): Product[] => {
