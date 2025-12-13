@@ -117,3 +117,4 @@ All descriptions and content are in English as requested.
 - `Sustainable` - Eco-friendly products
 - `Complete Kit` - Product sets
 - `Popular` - Well-liked products
+

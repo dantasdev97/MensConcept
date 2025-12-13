@@ -13,3 +13,4 @@ export interface Product {
   video?: string
   tags: string[]
 }
+

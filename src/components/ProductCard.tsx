@@ -1,11 +1,22 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { Product } from '../types/product'
+import { useCartContext } from '../contexts/CartContext'
 
 interface ProductCardProps {
   product: Product
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCartContext()
+  const [isAdded, setIsAdded] = useState(false)
+
+  const handleAddToCart = () => {
+    addToCart(product, 1)
+    setIsAdded(true)
+    setTimeout(() => setIsAdded(false), 2000)
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -13,7 +24,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       transition={{ duration: 0.5 }}
       className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-white/20"
     >
-      {/* Imagem do Produto */}
+      {/* Product Image */}
       <div className="relative h-48 bg-gray-100 overflow-hidden">
         <motion.img
           src={product.image}
@@ -41,7 +52,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        {/* Badge de Promoção */}
+        {/* Promotion Badge */}
         {product.oldPrice && (
           <div className="absolute top-2 right-2">
             <span className="px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-full">
@@ -51,24 +62,24 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
       </div>
 
-      {/* Conteúdo */}
+      {/* Content */}
       <div className="p-4">
-        {/* Categoria */}
+        {/* Category */}
         <span className="text-xs text-[#DD9E32] font-body uppercase tracking-wider">
           {product.category}
         </span>
 
-        {/* Nome */}
+        {/* Name */}
         <h3 className="text-lg font-heading font-bold text-gray-900 mt-1 mb-2">
           {product.name}
         </h3>
 
-        {/* Descrição */}
+        {/* Description */}
         <p className="text-gray-600 text-sm font-body mb-4 line-clamp-2">
           {product.description}
         </p>
 
-        {/* Preços */}
+        {/* Prices */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="text-xl font-heading font-bold text-gray-900">
@@ -82,14 +93,20 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        {/* Botões */}
+        {/* Buttons */}
         <div className="flex gap-2">
           <motion.button
+            onClick={handleAddToCart}
+            disabled={isAdded}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex-1 px-3 py-2 bg-gray-100 text-gray-800 font-heading font-semibold rounded-lg hover:bg-gray-200 transition-colors text-sm"
+            className={`flex-1 px-3 py-2 font-heading font-semibold rounded-lg transition-colors text-sm ${
+              isAdded
+                ? 'bg-green-500 text-white cursor-not-allowed'
+                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+            }`}
           >
-            Add to Cart
+            {isAdded ? '✓ Added' : 'Add to Cart'}
           </motion.button>
 
           <motion.button
@@ -104,3 +121,4 @@ export default function ProductCard({ product }: ProductCardProps) {
     </motion.div>
   )
 }
+

@@ -1,10 +1,21 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { useCartContext } from '../contexts/CartContext'
+import CartModal from './CartModal'
+import MenuModal from './MenuModal'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
   const [logoError, setLogoError] = useState(false)
+  const {
+    items,
+    totalItems,
+    totalPrice,
+    removeFromCart,
+    updateQuantity,
+    clearCart
+  } = useCartContext()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0C0A09] border-b border-white/10">
@@ -44,24 +55,34 @@ export default function Header() {
           {/* Icons Section */}
           <div className="flex items-center gap-4">
             <motion.button
+              onClick={() => setCartOpen(true)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-white hover:text-[#DD9E32] transition-colors"
+              className="text-white hover:text-[#DD9E32] transition-colors relative"
               aria-label="Shopping bag"
             >
-              <svg 
-                className="w-6 h-6 md:w-7 md:h-7" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-6 h-6 md:w-7 md:h-7"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
+              {totalItems > 0 && (
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-2 -right-2 bg-[#DD9E32] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                >
+                  {totalItems}
+                </motion.span>
+              )}
             </motion.button>
             
             <motion.button
@@ -97,34 +118,24 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="mt-4 overflow-hidden"
-            >
-              <div className="flex flex-col gap-4 py-4">
-                <Link to="/" className="text-white hover:text-[#DD9E32] transition-colors font-body">
-                  Home
-                </Link>
-                <Link to="/about" className="text-white hover:text-[#DD9E32] transition-colors font-body">
-                  About
-                </Link>
-                <Link to="/services" className="text-white hover:text-[#DD9E32] transition-colors font-body">
-                  Services
-                </Link>
-                <Link to="/products-demo" className="text-white hover:text-[#DD9E32] transition-colors font-body">
-                  Produtos
-                </Link>
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Cart Modal */}
+      <CartModal
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={items}
+        totalPrice={totalPrice}
+        onRemoveItem={removeFromCart}
+        onUpdateQuantity={updateQuantity}
+        onClearCart={clearCart}
+      />
+
+      {/* Menu Modal */}
+      <MenuModal
+        isOpen={menuOpen}
+        onClose={() => setMenuOpen(false)}
+      />
     </header>
   )
 }
