@@ -4,7 +4,6 @@ import Header from '../components/Header'
 import ProductGrid from '../components/ProductGrid'
 
 export default function Products() {
-  const [videoLoaded, setVideoLoaded] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
 
   const handleFullscreenVideo = () => {
@@ -100,14 +99,12 @@ export default function Products() {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover"
-                  onLoadedData={() => setVideoLoaded(true)}
-                  onError={(e) => {
-                    console.warn('Video failed to load:', e)
-                    setVideoLoaded(false)
-                    const target = e.target as HTMLVideoElement
-                    target.style.display = 'none'
-                  }}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                console.warn('Video failed to load:', e)
+                const target = e.target as HTMLVideoElement
+                target.style.display = 'none'
+              }}
                 >
                   <source src="/videos/video-banner.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
