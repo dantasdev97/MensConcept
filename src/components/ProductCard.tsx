@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Product } from '../types/product'
 import { useCartContext } from '../contexts/CartContext'
 
@@ -109,13 +110,15 @@ export default function ProductCard({ product }: ProductCardProps) {
             {isAdded ? '✓ Added' : 'Add to Cart'}
           </motion.button>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="flex-1 px-3 py-2 bg-[#DD9E32] text-white font-heading font-semibold rounded-lg hover:bg-[#C88A1F] transition-colors text-sm"
-          >
-            View Product
-          </motion.button>
+          <Link to={`/products/${product.id}`} className="flex-1">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full px-3 py-2 bg-[#DD9E32] text-white font-heading font-semibold rounded-lg hover:bg-[#C88A1F] transition-colors text-sm"
+            >
+              View Product
+            </motion.button>
+          </Link>
         </div>
       </div>
     </motion.div>
