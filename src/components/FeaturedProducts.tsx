@@ -172,19 +172,6 @@ export default function FeaturedProducts() {
           </motion.div>
         </div>
 
-        {/* Additional Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mb-12"
-        >
-          <p className="text-white/80 font-body text-lg max-w-2xl mx-auto">
-            Experience the ultimate grooming ritual at Men's Concept. From precision cuts to expert product recommendations,
-            we deliver unparalleled service in Luxembourg's premier barbershop destination.
-          </p>
-        </motion.div>
 
         {/* CTA Section */}
         <motion.div
@@ -224,7 +211,8 @@ export default function FeaturedProducts() {
             </motion.a>
 
             {/* View Products Button */}
-            <motion.button
+            <motion.a
+              href="/products"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group relative px-8 py-4 border-2 border-[#DD9E32] text-[#DD9E32] uppercase tracking-wider font-heading font-bold rounded-lg flex items-center gap-3 hover:bg-[#DD9E32] hover:text-white transition-all shadow-lg hover:shadow-xl"
@@ -246,7 +234,7 @@ export default function FeaturedProducts() {
                   d="M9 5l7 7-7 7"
                 />
               </motion.svg>
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>

@@ -322,7 +322,10 @@ export default function ProductDetail() {
                 <motion.div
                   key={recommendedProduct.id}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="flex-shrink-0 w-48 bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/10 transition-all duration-300 border border-white/10"
+                  className="flex-shrink-0 w-48 bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-white/10 transition-all duration-300 border border-white/10 cursor-pointer"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }}
                 >
                   <Link to={`/products/${recommendedProduct.id}`}>
                     <div className="aspect-square bg-gray-100 overflow-hidden">
@@ -342,9 +345,13 @@ export default function ProductDetail() {
                       <span className="text-xs text-[#DD9E32] font-body uppercase tracking-wider">
                         {recommendedProduct.category}
                       </span>
-                      <h3 className="text-sm font-heading font-bold text-white mt-1 mb-2 line-clamp-2">
+                      <motion.h3
+                        className="text-sm font-heading font-bold text-white mt-1 mb-2 line-clamp-2"
+                        whileHover={{ color: '#DD9E32' }}
+                        transition={{ duration: 0.2 }}
+                      >
                         {recommendedProduct.name}
-                      </h3>
+                      </motion.h3>
                       <div className="flex items-center gap-2">
                         <span className="text-lg font-heading font-bold text-white">
                           €{recommendedProduct.price.toFixed(2)}

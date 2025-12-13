@@ -148,28 +148,53 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
+            {/* Shop Products Button */}
+            <motion.a
+              href="/products"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative px-8 py-4 bg-white/10 backdrop-blur-sm text-white uppercase tracking-wider font-heading font-semibold rounded-full flex items-center gap-3 hover:bg-white/20 transition-all border border-white/30 hover:border-white/50"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span className="text-base md:text-lg">SHOP PRODUCTS</span>
+              <motion.svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                initial={{ x: 0 }}
+                animate={{ x: [0, 3, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </motion.svg>
+            </motion.a>
+
+            {/* Book Appointment Button - Smaller */}
             <motion.a
               href="https://salonkee.lu/salon/men-s-concept-barber-shop"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative px-10 py-5 bg-[#DD9E32] text-white uppercase tracking-wider font-heading font-bold rounded-lg flex items-center gap-3 hover:bg-[#C88A1F] transition-all shadow-lg shadow-[#DD9E32]/30 hover:shadow-xl hover:shadow-[#DD9E32]/40"
+              className="group relative px-6 py-3 bg-[#DD9E32] text-white uppercase tracking-wider font-heading font-bold rounded-lg flex items-center gap-2 hover:bg-[#C88A1F] transition-all shadow-lg shadow-[#DD9E32]/30 hover:shadow-xl hover:shadow-[#DD9E32]/40"
             >
-              <span className="text-lg md:text-xl">BOOK APPOINTMENT</span>
+              <span className="text-sm md:text-base">BOOK APPOINTMENT</span>
               <motion.svg
-                className="w-6 h-6"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 initial={{ x: 0 }}
-                animate={{ x: [0, 5, 0] }}
+                animate={{ x: [0, 3, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2.5}
+                  strokeWidth={2}
                   d="M9 5l7 7-7 7"
                 />
               </motion.svg>

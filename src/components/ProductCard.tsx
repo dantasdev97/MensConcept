@@ -23,102 +23,124 @@ export default function ProductCard({ product }: ProductCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white/90 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-white/20"
+      className="group relative bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 border border-white/30 hover:border-[#DD9E32]/30"
     >
-      {/* Product Image */}
-      <div className="relative h-48 bg-gray-100 overflow-hidden">
+      {/* Product Image - Destaque Principal */}
+      <div className="relative h-64 bg-gray-100 overflow-hidden">
         <motion.img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           onError={(e) => {
             const target = e.target as HTMLImageElement
             target.src = 'https://via.placeholder.com/400x300/0C0A09/DD9E32?text=' + encodeURIComponent(product.name)
           }}
         />
 
-        {/* Tags */}
+        {/* Overlay gradiente para legibilidade do texto */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+        {/* Tags - Reposicionadas */}
         {product.tags.length > 0 && (
-          <div className="absolute top-2 left-2 flex flex-wrap gap-1">
+          <div className="absolute top-3 left-3 flex flex-wrap gap-2">
             {product.tags.slice(0, 2).map((tag, index) => (
-              <span
+              <motion.span
                 key={index}
-                className="px-2 py-1 bg-[#DD9E32] text-white text-xs font-bold rounded-full"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="px-3 py-1 bg-[#DD9E32] text-white text-xs font-bold rounded-full shadow-lg"
               >
                 {tag}
-              </span>
+              </motion.span>
             ))}
           </div>
         )}
 
-        {/* Promotion Badge */}
+        {/* Promotion Badge - Reposicionada */}
         {product.oldPrice && (
-          <div className="absolute top-2 right-2">
-            <span className="px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-full">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="absolute top-3 right-3"
+          >
+            <span className="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full shadow-lg">
               {Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)}% OFF
             </span>
-          </div>
+          </motion.div>
         )}
-      </div>
 
-      {/* Content */}
-      <div className="p-4">
-        {/* Category */}
-        <span className="text-xs text-[#DD9E32] font-body uppercase tracking-wider">
-          {product.category}
-        </span>
-
-        {/* Name */}
-        <h3 className="text-lg font-heading font-bold text-gray-900 mt-1 mb-2">
-          {product.name}
-        </h3>
-
-        {/* Description */}
-        <p className="text-gray-600 text-sm font-body mb-4 line-clamp-2">
-          {product.description}
-        </p>
-
-        {/* Prices */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-heading font-bold text-gray-900">
-              €{product.price.toFixed(2)}
+        {/* Título e Preço - Dentro da Imagem */}
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            {/* Category */}
+            <span className="text-xs text-[#DD9E32] font-body uppercase tracking-wider mb-1 block">
+              {product.category}
             </span>
-            {product.oldPrice && (
-              <span className="text-sm text-gray-500 line-through">
-                €{product.oldPrice.toFixed(2)}
+
+            {/* Product Name */}
+            <h3 className="text-lg font-heading font-bold text-white mb-2 line-clamp-2 group-hover:text-[#DD9E32] transition-colors duration-300">
+              {product.name}
+            </h3>
+
+            {/* Price */}
+            <div className="flex items-center gap-2">
+              <span className="text-xl font-heading font-bold text-white">
+                €{product.price.toFixed(2)}
               </span>
-            )}
-          </div>
+              {product.oldPrice && (
+                <span className="text-sm text-gray-300 line-through">
+                  €{product.oldPrice.toFixed(2)}
+                </span>
+              )}
+            </div>
+          </motion.div>
         </div>
 
-        {/* Buttons */}
-        <div className="flex gap-2">
+        {/* Botões de Ação - Overlay na Imagem */}
+        <div className="absolute bottom-4 right-4 flex gap-3">
+          {/* View Details Button - Left */}
+          <Link to={`/products/${product.id}`}>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-12 h-12 bg-white/20 hover:bg-white/30 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
+              aria-label="View product details"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </motion.button>
+          </Link>
+
+          {/* Add to Cart Button - Right (Destacado) */}
           <motion.button
             onClick={handleAddToCart}
             disabled={isAdded}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className={`flex-1 px-3 py-2 font-heading font-semibold rounded-lg transition-colors text-sm ${
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.85 }}
+            className={`w-14 h-14 rounded-full shadow-xl transition-all duration-300 flex items-center justify-center ${
               isAdded
-                ? 'bg-green-500 text-white cursor-not-allowed'
-                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                ? 'bg-green-500 text-white cursor-not-allowed scale-110'
+                : 'bg-[#DD9E32] hover:bg-[#C88A1F] text-white shadow-[#DD9E32]/50 hover:shadow-[#DD9E32]/70'
             }`}
+            aria-label="Add to cart"
           >
-            {isAdded ? '✓ Added' : 'Add to Cart'}
+            {isAdded ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2 4m2-4l2 4m7-4v8a2 2 0 01-2 2H9a2 2 0 01-2-2v-8" />
+              </svg>
+            )}
           </motion.button>
-
-          <Link to={`/products/${product.id}`} className="flex-1">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full px-3 py-2 bg-[#DD9E32] text-white font-heading font-semibold rounded-lg hover:bg-[#C88A1F] transition-colors text-sm"
-            >
-              View Product
-            </motion.button>
-          </Link>
         </div>
       </div>
     </motion.div>

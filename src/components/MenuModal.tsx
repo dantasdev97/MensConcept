@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getFeaturedProducts } from '../data/products'
 
@@ -9,6 +9,10 @@ interface MenuModalProps {
 }
 
 export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+
   // Fechar modal ao pressionar ESC
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -28,8 +32,24 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
     }
   }, [isOpen, onClose])
 
-  // Obter produtos em destaque para recomendações
-  const featuredProducts = getFeaturedProducts().slice(0, 3)
+  // Verificar se há scroll possível
+  const checkScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
+      setCanScrollLeft(scrollLeft > 0)
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
+    }
+  }
+
+  useEffect(() => {
+    if (isOpen) {
+      // Pequeno delay para garantir que o DOM esteja pronto
+      setTimeout(checkScroll, 100)
+    }
+  }, [isOpen])
+
+  // Obter produtos em destaque para recomendações (mais produtos para melhor teste do scroll)
+  const featuredProducts = getFeaturedProducts().slice(0, 5)
 
   return (
     <AnimatePresence>
@@ -102,37 +122,67 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
 
               {/* Featured Products */}
               <div>
-                <h3 className="text-lg font-heading font-semibold text-white mb-4">Featured Products</h3>
-                <div className="space-y-3">
-                  {featuredProducts.map((product) => (
-                    <motion.div
-                      key={product.id}
-                      whileHover={{ scale: 1.02 }}
-                      className="flex items-center gap-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
-                      onClick={onClose}
-                    >
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-12 h-12 object-cover rounded-md"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement
-                          target.src = 'https://via.placeholder.com/48x48/0C0A09/DD9E32?text=' + encodeURIComponent(product.name)
-                        }}
-                      />
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-white font-heading font-medium text-sm truncate">
-                          {product.name}
-                        </h4>
-                        <p className="text-[#DD9E32] font-body text-sm">
-                          €{product.price.toFixed(2)}
-                        </p>
-                      </div>
-                      <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </motion.div>
-                  ))}
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-heading font-semibold text-white">Featured Products</h3>
+                  <div className="flex gap-1">
+                    {featuredProducts.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                          index === 0 ? 'bg-[#DD9E32]' : 'bg-white/30'
+                        }`}
+                      ></div>
+                    ))}
+                  </div>
+                </div>
+                <div className="relative">
+                  <div
+                    ref={scrollContainerRef}
+                    className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
+                    onScroll={checkScroll}
+                  >
+                    {featuredProducts.map((product, index) => (
+                      <Link key={product.id} to={`/products/${product.id}`} onClick={onClose}>
+                        <motion.div
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          whileHover={{ scale: 1.02 }}
+                          className="flex-shrink-0 w-48 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+                        >
+                          <div className="flex items-center gap-3">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="w-12 h-12 object-cover rounded-md flex-shrink-0"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement
+                                target.src = 'https://via.placeholder.com/48x48/0C0A09/DD9E32?text=' + encodeURIComponent(product.name)
+                              }}
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-white font-heading font-medium text-sm truncate">
+                                {product.name}
+                              </h4>
+                              <p className="text-[#DD9E32] font-body text-sm">
+                                €{product.price.toFixed(2)}
+                              </p>
+                            </div>
+                            <svg className="w-4 h-4 text-white/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </motion.div>
+                      </Link>
+                    ))}
+                  </div>
+                  {/* Scroll indicators */}
+                  {canScrollLeft && (
+                    <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0C0A09] to-transparent pointer-events-none z-10"></div>
+                  )}
+                  {canScrollRight && (
+                    <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0C0A09] to-transparent pointer-events-none z-10"></div>
+                  )}
                 </div>
                 <motion.div whileHover={{ x: 4 }} className="mt-4">
                   <Link
