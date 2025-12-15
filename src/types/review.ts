@@ -13,3 +13,4 @@ export interface GoogleBusinessData {
   user_ratings_total: number
 }
 
+

@@ -4,9 +4,9 @@ interface LogoProps {
 
 export default function Logo({ className = "" }: LogoProps) {
   return (
-    <img 
-      src="/Logo.png" 
-      alt="MensConcept Logo" 
+    <img
+      src="/images/logomensconcept.png"
+      alt="MensConcept Logo"
       className={className}
       onError={(e) => {
         // Fallback se a logo não existir

@@ -226,3 +226,4 @@ export const getProductsOnSale = (): Product[] => {
 export const getUniqueCategories = (): string[] => {
   return [...new Set(products.map(product => product.category))]
 }
+
